@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import Ciudad from "../components/Ciudad.jsx";
 import Description from "../components/Description";
 
-const apiKey = "4ae2636d8dfbdc3044bede63951a019b";
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -18,7 +18,7 @@ function App() {
   function onSearch(ciudad) {
     //Llamado a la API del clima
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}`
     )
       .then((r) => r.json())
       .then((recurso) => {
